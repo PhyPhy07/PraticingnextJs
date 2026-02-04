@@ -12,7 +12,7 @@ const UsersPage = async () => {
   return (
     <div className="font-dm-sans">
       <h1 className="text-2xl font-bold">Users</h1>
-      <p className="font-azeret-mono text-sm text-gray-600 mt-1">
+      <p className="font-azeret-mono text-sm font-bold text-gray-600 mt-1">
         {new Date().toLocaleTimeString()}
       </p>
       <ul className="mt-6 space-y-2">
@@ -21,7 +21,7 @@ const UsersPage = async () => {
             <span className="font-azeret-mono text-sm text-gray-500 tabular-nums">
               #{user.id}
             </span>
-            <span>{user.name}</span>
+            <span className="font-bold">{user.name}</span>
           </li>
         ))}
       </ul>
