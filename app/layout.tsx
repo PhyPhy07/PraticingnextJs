@@ -1,26 +1,10 @@
 import type { Metadata } from "next";
-import { Azeret_Mono, DM_Sans, Geist, Geist_Mono } from "next/font/google";
+import { Azeret_Mono, DM_Sans } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-});
-
-const azeretMono = Azeret_Mono({
-  variable: "--font-azeret-mono",
-  subsets: ["latin"],
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const dmSans = DM_Sans({ variable: "--font-dm-sans", subsets: ["latin"] });
+const azeretMono = Azeret_Mono({ variable: "--font-azeret-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -35,8 +19,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmSans.variable} ${azeretMono.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${dmSans.variable} ${azeretMono.variable} antialiased`}
       >
+        <header className="bg-brand-100 px-6 py-4">
+          <nav className="flex items-center gap-6">
+            <Link href="/" className="font-bold text-brand-50 hover:text-brand-600 transition-colors">
+              Home
+            </Link>
+            <Link href="/users" className="text-brand-50 hover:text-brand-600 transition-colors">
+              Users
+            </Link>
+          </nav>
+        </header>
         {children}
       </body>
     </html>
